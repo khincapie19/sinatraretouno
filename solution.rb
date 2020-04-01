@@ -1,7 +1,9 @@
 require "sinatra"
 
 get "/" do
-  subject = params[:nombre] ? params[:nombre] : "desconocido"
-
-  "<h1>Hola #{subject}!</h1>"
+  unless params[:nombre]
+    "Hola desconocido!"
+  else
+    "<h1>Hola #{params[:nombre]}!</h1>"
+  end
 end
